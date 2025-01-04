@@ -1,0 +1,27 @@
+/* bugSolution.css */
+/* Correct usage of calc() */
+.container {
+  width: calc(100vw - 40px); /* Consistent units */
+}
+
+.element {
+  height: calc(200px + 2em); /* Consistent units.  Consider using variables to manage em conversions */
+}
+
+/* More robust example using variables for better readability and maintainability */
+:root {
+  --sidebar-width: 200px;
+}
+
+.content {
+  width: calc(100% - var(--sidebar-width));
+}
+
+/* Avoid calculations that could be ambiguous and difficult to maintain*/
+.bad-example {
+  width: calc(100% - 50% + 20px); /* This could be simplified and made clearer */
+}
+
+.good-example {
+  width: calc(50% + 20px); /* This is simpler and more readable */
+} 
